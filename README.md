@@ -1,32 +1,59 @@
 # Serverless Cookbook
 
-Runnable, workload-first examples for Serverless AI Jobs and Endpoints.
+Runnable, workload-first examples for **Serverless AI Jobs and Endpoints** on Nebius.
 
-The repository demonstrates how to run real AI/ML workloads without managing infrastructure.
-Examples focus on practical workloads such as:
+This repository shows how to run real AI/ML workloads without managing VM lifecycle directly.  
+Examples focus on practical use cases such as:
 
 - model training
 - fine-tuning
 - batch inference
 - LLM serving
+- simulations and domain workloads
 
-> ⚠️ This repository contains community-maintained examples for running workloads on Serverless AI.
-> The examples are provided for experimentation and learning. Platform features and commands may change.
->
-> For official documentation, see: <https://docs.nebius.com/serverless>
+> Community-maintained examples for experimentation and learning.  
+> For official product documentation, see the [Serverless AI docs](https://docs.nebius.com/serverless).
+
+## Start here
+
+Choose the path that best matches what you want to run:
+
+- **First run** → [Quickstarts](./quickstarts/)
+- **Training / fine-tuning** → [Training examples](./training/)
+- **Inference / serving** → [Inference examples](./inference/)
+- **Scientific / domain workloads** → [Life science examples](./life-science/)
 
 ## Getting started
 
-1. Set up the Nebius CLI once at repo level, then run examples without repeating setup in every tutorial.
+1. Install the Nebius CLI: [Install guide](https://docs.nebius.com/cli/install)
+2. Configure your CLI profile and project: [Configure guide](https://docs.nebius.com/cli/configure)
+3. Pick an example from the sections below
+4. Follow the example README and verify the expected output
 
-    - Install Nebius CLI: <https://docs.nebius.com/cli/install>
-    - Configure Nebius CLI profile/project: <https://docs.nebius.com/cli/configure>
+## Example catalog
 
-2. Pick an example from `quickstarts/`, `training/`, or `inference/`.
-3. Open the example markdown file (`README.md` or `*.md` quickstart).
-4. Follow the commands and verify the expected output section.
+### 🚀 Quickstarts
+Lowest-friction first runs.
 
-## Repository map
+- [`first-job.md`](./quickstarts/first-job.md) — run `nvidia-smi` in a Serverless AI job
+- [`first-endpoint.md`](./quickstarts/first-endpoint.md) — deploy a quick `nginx` endpoint
+
+### 🏋️ Training
+Model training and fine-tuning workloads.
+
+- [`axolotl-finetuning`](./training/axolotl-finetuning/README.md) — get started fine-tuning with Axolotl
+
+### ⚡ Inference
+Endpoint serving and batch inference workloads.
+
+- [`vllm-endpoint`](./inference/vllm-endpoint/README.md) — serve Qwen with an OpenAI-compatible vLLM endpoint
+
+### 🧬 Life Science
+Domain-specific simulation and analysis workloads.
+
+- [`openmm-simulation`](./life-science/openmm-simulation/README.md) — run GPU-backed molecular dynamics simulations with OpenMM
+
+## Repository structure
 
 ```text
 serverless-cookbook/
@@ -43,28 +70,18 @@ serverless-cookbook/
 ├─ inference/
 │  ├─ vllm-endpoint/
 │  └─ ...
+├─ life-science/
+│  ├─ openmm-simulation/
+│  └─ ...
 ```
 
-## Section intent
+## Section guide
 
 - `quickstarts/`: lowest-friction first runs.
 - `training/`: model training and fine-tuning workloads.
 - `inference/`: endpoint serving and batch inference workloads.
+- `life-science/`: domain-specific simulation and analysis workloads.
 
-## Example catalog
-
-### 🚀 Quickstarts
-
-- [`first-job.md`](./quickstarts/first-job.md) - run `nvidia-smi` in a Serverless AI job
-- [`first-endpoint.md`](./quickstarts/first-endpoint.md) - deploy an authenticated nginx endpoint
-
-### 🏋️ Training
-
-- [`axolotl-finetuning`](./training/axolotl-finetuning/README.md) - get started fine-tuning with Axolotl
-
-### ⚡ Inference
-
-- [`vllm-endpoint`](./inference/vllm-endpoint/README.md) - serve Qwen via OpenAI-compatible vLLM endpoint
 
 ## Resources
 
