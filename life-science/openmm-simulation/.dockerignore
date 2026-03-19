@@ -1,0 +1,41 @@
+.git
+.gitignore
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local outputs and large artifacts
+results/
+local-results/
+plots/
+*.dcd
+*.log
+
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+id_rsa
+id_rsa.pub
+credentials.json
+
+# AWS credentials/config
+.aws/
+**/.aws/
+**/.aws/credentials
+**/.aws/config
+
+# Editor/system noise
+.DS_Store
+.idea/
+.vscode/

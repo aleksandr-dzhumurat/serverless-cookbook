@@ -123,14 +123,13 @@ Recommended fields:
 Keep README files concise and practical. Include:
 
 1. What this example does
-2. Why this is useful
-3. Requirements
-4. Runtime / compute
-5. Files
-6. Quickstart
-7. Expected output
-8. How to adapt
-9. Troubleshooting
+  - Why this is useful
+  - Requirements
+  - Runtime / compute
+2. Run
+3. Expected output
+4. How to adapt
+5. Troubleshooting
 
 ## Naming rules
 

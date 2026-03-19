@@ -104,7 +104,7 @@ lora_target_modules:
 Upload config:
 
 ```bash
-aws s3 cp config.yaml s3://fine-tuning-axolotl/config.yaml
+aws s3 cp src/config.yaml s3://fine-tuning-axolotl/config.yaml
 ```
 
 ### 2) Run fine-tuning job
@@ -150,7 +150,7 @@ aws s3 cp --recursive s3://fine-tuning-axolotl/output/$RUN_ID ./download/output
 
 ## Expected output
 
-- training job enters `RUNNING`, then `COMLETED`
+- training job enters `RUNNING`, then `COMPLETED`
 - job logs show Axolotl progress and checkpoints
 - adapter artifacts are available under `s3://fine-tuning-axolotl/output/...`
 

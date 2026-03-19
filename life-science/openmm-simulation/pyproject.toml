@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nebius-serverless-openmm"
+version = "0.1.0"
+description = "Serverless molecular dynamics simulations with OpenMM"
+requires-python = ">=3.11"
+authors = [
+    {name = "Mikhail Rozhkov", email = "mnrozhkov@nebius.com"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+dependencies = [
+    # Core simulation dependencies
+    "openmm==8.4.0",
+    
+    # Cloud storage
+    "boto3",
+    
+    # Utilities
+    "requests",
+    
+    # Visualization dependencies
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "mdtraj>=1.9.8",
+]
+
+[project.optional-dependencies]
+
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+    "mypy",
+    "pre-commit",
+]
+
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-asyncio",
+]
+
+[project.scripts]
+openmm-sim = "sim.run:main"
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "sim/*.py",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+include = '\.pyi?$'
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=src",
+    "--cov-report=term-missing",
+]
