@@ -15,14 +15,16 @@ if ! command -v uv &> /dev/null; then
     exit 1
 fi
 
+MIN_MINOR=11
+
 if [ -n "${UV_PYTHON:-}" ]; then
     PYTHON_BIN="$UV_PYTHON"
 else
     PYTHON_BIN=""
-    for candidate in python3.14 python3; do
+    for candidate in python3 python3.13 python3.12 python3.11; do
         if command -v "$candidate" >/dev/null 2>&1; then
-            CANDIDATE_VERSION="$("$candidate" -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
-            if [ "$CANDIDATE_VERSION" = "3.14" ]; then
+            CANDIDATE_MINOR="$("$candidate" -c 'import sys; print(sys.version_info.minor)')"
+            if [ "$CANDIDATE_MINOR" -ge "$MIN_MINOR" ]; then
                 PYTHON_BIN="$candidate"
                 break
             fi
@@ -31,8 +33,8 @@ else
 fi
 
 if [ -z "$PYTHON_BIN" ]; then
-    echo "❌ Python 3.14 is required for this example." >&2
-    echo "Install Python 3.14 and rerun ./scripts/setup.sh, or set UV_PYTHON=python3.14." >&2
+    echo "❌ Python 3.${MIN_MINOR}+ is required for this example." >&2
+    echo "Install a supported Python version and rerun ./scripts/setup.sh, or set UV_PYTHON." >&2
     exit 1
 fi
 

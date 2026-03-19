@@ -99,14 +99,3 @@ docker run --platform linux/amd64 --rm \
   "$IMAGE" "$PROTEIN_ID" "$STEPS"
 
 echo "Simulation completed!"
-
-# Test interactive
-# docker run --platform linux/amd64 --rm -ti \
-#   --entrypoint /bin/bash \
-#   -e AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \
-#   -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \
-#   -e AWS_DEFAULT_REGION="$AWS_DEFAULT_REGION" \
-#   -e S3_BUCKET="$S3_BUCKET" \
-#   -e S3_PREFIX="$S3_PREFIX" \
-#   -e S3_ENDPOINT_URL="$S3_ENDPOINT_URL" \
-#   "$IMAGE"

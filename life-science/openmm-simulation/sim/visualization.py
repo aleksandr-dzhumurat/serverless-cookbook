@@ -49,7 +49,7 @@ class SimulationVisualizer:
 
     @staticmethod
     def _safe_tight_layout() -> None:
-        """Apply tight layout but tolerate matplotlib/Python 3.14 recursion bugs."""
+        """Apply tight layout but tolerate matplotlib recursion bugs on some Python versions."""
         try:
             plt.tight_layout()
         except RecursionError as e:

@@ -11,7 +11,7 @@ from .utils import (
     run_simulation_steps
 )
 from .metadata import save_simulation_metadata
-from .storage import upload_results_to_s3, check_s3_configuration
+from .storage import upload_results_to_s3
 from .visualization import create_visualizations
 
 

@@ -32,8 +32,8 @@ COPY uv.lock .
 COPY README.md .
 COPY sim/ ./sim/
 
-# Create Python 3.14 virtual environment
-RUN uv python install 3.14 && uv venv /opt/venv --python 3.14
+# Create Python virtual environment (3.12 for broad compatibility with scientific packages)
+RUN uv python install 3.12 && uv venv /opt/venv --python 3.12
 ENV PATH="/opt/venv/bin:/root/.local/bin:$PATH"
 
 # Install Python dependencies with fallback for OpenMM
